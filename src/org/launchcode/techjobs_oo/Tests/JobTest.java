@@ -62,4 +62,30 @@ public class JobTest {
                 new CoreCompetency("Persistence"));
         assertNotEquals(testJob2, testJob3);
     }
+
+    @Test
+    public void toStringPrintsBlankLines() {
+        Job testJob2 = new Job();
+       assertEquals("" + testJob2 + "", testJob2.toString());
+    }
+
+    @Test
+    public void toStringPrintsLabelsOnNewLines() {
+        Job testJob2 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        assertEquals("" + testJob2 + "", testJob2.toString());
+    }
+
+    @Test
+    public void toStringPrintsErrorWhenNoData() {
+        Job testJob2 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType(""),
+                new CoreCompetency("Persistence"));
+        assertEquals("Data Not Available", testJob2.getPositionType().toString());
+    }
 }
