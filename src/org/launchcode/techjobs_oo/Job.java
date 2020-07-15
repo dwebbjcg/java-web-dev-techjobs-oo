@@ -115,12 +115,12 @@ public class Job {
 
     @Override
     public String toString() {
-        return "\nid=" + this.getId() +
-                "\nname=" + this.getName() +
-                "\nemployer=" + this.getEmployer() +
-                "\nlocation=" + this.getLocation() +
-                "\nposition type=" + this.getPositionType() +
-                "\ncore competency=" + this.getCoreCompetency() + "\n"
+        return "\nID: " + this.getId() +
+                "\nName: " + this.getName() +
+                "\nEmployer: " + this.getEmployer() +
+                "\nLocation: " + this.getLocation() +
+                "\nPosition Type: " + this.getPositionType() +
+                "\nCore Competency: " + this.getCoreCompetency() + "\n"
                 ;
     }
 }

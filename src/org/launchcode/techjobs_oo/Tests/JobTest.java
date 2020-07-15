@@ -79,12 +79,12 @@ public class JobTest {
                 new Location("Desert"),
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
-        assertEquals("\n" + "id=" + testJob2.getId() + "\n" +
-                "name=" + testJob2.getName() + "\n" +
-                "employer=" + testJob2.getEmployer() + "\n" +
-                "location=" + testJob2.getLocation() + "\n" +
-                "position type=" + testJob2.getPositionType() + "\n" +
-                "core competency=" + testJob2.getCoreCompetency() + "\n", testJob2.toString());    }
+        assertEquals("\n" + "ID: " + testJob2.getId() + "\n" +
+                "Name: " + testJob2.getName() + "\n" +
+                "Employer: " + testJob2.getEmployer() + "\n" +
+                "Location: " + testJob2.getLocation() + "\n" +
+                "Position Type: " + testJob2.getPositionType() + "\n" +
+                "Core Competency: " + testJob2.getCoreCompetency() + "\n", testJob2.toString());    }
 
     @Test
     public void toStringPrintsErrorWhenNoData() {
@@ -93,11 +93,11 @@ public class JobTest {
                 new Location("Desert"),
                 new PositionType(""),
                 new CoreCompetency("Persistence"));
-        assertEquals("\n" + "id=" + testJob2.getId() + "\n" +
-               "name=" + testJob2.getName() + "\n" +
-                "employer=" + testJob2.getEmployer() + "\n" +
-                "location=" + testJob2.getLocation() + "\n" +
-                "position type=" + testJob2.getPositionType() + "\n" +
-                "core competency=" + testJob2.getCoreCompetency() + "\n", testJob2.toString());
+        assertEquals("\n" + "ID: " + testJob2.getId() + "\n" +
+               "Name: " + testJob2.getName() + "\n" +
+                "Employer: " + testJob2.getEmployer() + "\n" +
+                "Location: " + testJob2.getLocation() + "\n" +
+                "Position Type: " + testJob2.getPositionType() + "\n" +
+                "Core Competency: " + testJob2.getCoreCompetency() + "\n", testJob2.toString());
     }
 }
