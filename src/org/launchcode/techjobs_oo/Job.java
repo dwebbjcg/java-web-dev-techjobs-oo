@@ -30,36 +30,43 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Job)) return false;
         Job job = (Job) o;
-        return id == job.id &&
-                name.equals(job.name) &&
-                employer.equals(job.employer) &&
-                location.equals(job.location) &&
-                positionType.equals(job.positionType) &&
-                coreCompetency.equals(job.coreCompetency);
+        return getId() == job.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(getId());
     }
 
     public String getName() {
-        return name;
+        if (name.equals("")) {
+            return "Data Not Available";
+        } else {
+            return name;
+        }
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
     public Employer getEmployer() {
-        return employer;
+        if (employer.getValue().equals("")) {
+            return new Employer("Data Not Available");
+        } else {
+            return employer;
+        }
     }
 
     public void setEmployer(Employer employer) {
@@ -67,7 +74,11 @@ public class Job {
     }
 
     public Location getLocation() {
-        return location;
+        if (location.getValue().equals("")) {
+            return new Location("Data Not Available");
+        } else {
+            return location;
+        }
     }
 
     public void setLocation(Location location) {
@@ -75,7 +86,11 @@ public class Job {
     }
 
     public PositionType getPositionType() {
-        return positionType;
+        if (positionType.getValue().equals("")) {
+            return new PositionType("Data Not Available");
+        } else {
+            return positionType;
+        }
     }
 
     public void setPositionType(PositionType positionType) {
@@ -83,7 +98,11 @@ public class Job {
     }
 
     public CoreCompetency getCoreCompetency() {
-        return coreCompetency;
+        if (coreCompetency.getValue().equals("")) {
+            return new CoreCompetency("Data Not Available");
+        } else {
+            return coreCompetency;
+        }
     }
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
@@ -96,12 +115,12 @@ public class Job {
 
     @Override
     public String toString() {
-        return "\n id=" + id +
-                ", name='" + name +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency + "\n"
+        return "\nid=" + this.getId() +
+                "\nname=" + this.getName() +
+                "\nemployer=" + this.getEmployer() +
+                "\nlocation=" + this.getLocation() +
+                "\nposition type=" + this.getPositionType() +
+                "\ncore competency=" + this.getCoreCompetency() + "\n"
                 ;
     }
 }

@@ -20,7 +20,6 @@ public class JobTest {
     @Test
     public void testExpected() {
         assertTrue(2, testJob2.getId());
-        
     }
 
     @Test
@@ -65,7 +64,11 @@ public class JobTest {
 
     @Test
     public void toStringPrintsBlankLines() {
-        Job testJob2 = new Job();
+        Job testJob2 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
        assertEquals("" + testJob2 + "", testJob2.toString());
     }
 
@@ -76,16 +79,25 @@ public class JobTest {
                 new Location("Desert"),
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
-        assertEquals("" + testJob2 + "", testJob2.toString());
-    }
+        assertEquals("\n" + "id=" + testJob2.getId() + "\n" +
+                "name=" + testJob2.getName() + "\n" +
+                "employer=" + testJob2.getEmployer() + "\n" +
+                "location=" + testJob2.getLocation() + "\n" +
+                "position type=" + testJob2.getPositionType() + "\n" +
+                "core competency=" + testJob2.getCoreCompetency() + "\n", testJob2.toString());    }
 
     @Test
     public void toStringPrintsErrorWhenNoData() {
-        Job testJob2 = new Job("Product tester",
+        testJob2 = new Job("Product tester",
                 new Employer("ACME"),
                 new Location("Desert"),
                 new PositionType(""),
                 new CoreCompetency("Persistence"));
-        assertEquals("Data Not Available", testJob2.getPositionType().toString());
+        assertEquals("\n" + "id=" + testJob2.getId() + "\n" +
+               "name=" + testJob2.getName() + "\n" +
+                "employer=" + testJob2.getEmployer() + "\n" +
+                "location=" + testJob2.getLocation() + "\n" +
+                "position type=" + testJob2.getPositionType() + "\n" +
+                "core competency=" + testJob2.getCoreCompetency() + "\n", testJob2.toString());
     }
 }
